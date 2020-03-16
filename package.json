@@ -1,0 +1,35 @@
+{
+  "name": "homeferences",
+  "version": "1.0.0",
+  "description": "Conferences, but in your home.",
+  "author": "@_luisFilipePT",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "serve": "gatsby serve",
+    "lint:js": "eslint --ext .js,.jsx .",
+    "lint:css": "stylelint 'src/**/*.js'",
+    "check-pretty": "prettier -l {,src/**/}*.{js,jsx,json,css,scss}",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "yarn run lint:css && yarn run lint:js && yarn run check-pretty",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^2.19.12",
+    "gatsby-plugin-manifest": "^2.2.41",
+    "gatsby-theme-amsterdam": "^1.0.5",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-gatsby-standard": "^2.2.0",
+    "prettier": "^1.19.1",
+    "stylelint": "13.0.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.9.0"
+  }
+}
