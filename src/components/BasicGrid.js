@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "@emotion/styled"
-import Placeholder from "./Placeholder"
+import React from 'react'
+import styled from '@emotion/styled'
+import Placeholder from './Placeholder'
 
 const List = styled.ul`
   margin: 3rem auto;
@@ -101,7 +101,6 @@ const Tag = styled.span`
   }
 `
 const BasicGrid = ({ conferences }) => {
-  console.log(conferences)
   return (
     <List>
       {conferences.map(conference => (
@@ -111,7 +110,7 @@ const BasicGrid = ({ conferences }) => {
               {conference.image && (
                 <Cover src={conference.image} alt="Conference image" />
               )}
-              {!conference.image ? <Placeholder aspectRatio={5 / 3} /> : ""}
+              {!conference.image ? <Placeholder aspectRatio={5 / 3} /> : ''}
             </div>
           </a>
           <a href={conference.url}>
