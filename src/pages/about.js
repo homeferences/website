@@ -1,7 +1,8 @@
-import React from 'react'
-import Container from 'gatsby-theme-amsterdam/src/components/Container'
-import SEO from 'gatsby-theme-amsterdam/src/components/SEO'
-import styled from '@emotion/styled'
+import React from "react"
+import styled from "@emotion/styled"
+import Container from "../components/Container"
+import SEO from "../components/SEO"
+import Layout from "../components/Layout"
 
 const Title = styled.h1`
   font-weight: ${props => props.theme.fonts.boldWeight};
@@ -44,25 +45,26 @@ const Content = styled.div`
 
 const About = ({ data }) => {
   return (
-    <Container>
-      <SEO title="About" description="about homeferences" />
-      <Title>Conferences, but in your home.</Title>
-      <Content>
-        <p>
-          Contributions are welcome{' '}
-          <a
-            href="https://github.com/homeferences/website"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            check the repo
-          </a>{' '}.
-        </p>
-        <p>
-          This page will be updated soon with more info!
-        </p>
-      </Content>
-    </Container>
+    <Layout>
+      <Container>
+        <SEO title="About" description="About Homeferences" />
+        <Title>Conferences, but in your home.</Title>
+        <Content>
+          <p>
+            Contributions are welcome{" "}
+            <a
+              href="https://github.com/homeferences/website"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              check the repo
+            </a>{" "}
+            .
+          </p>
+          <p>This page will be updated soon with more info!</p>
+        </Content>
+      </Container>
+    </Layout>
   )
 }
 
