@@ -10,6 +10,8 @@ module.exports = {
     author: '@homeferences',
     image: `${__dirname}/src/images/homeferences.jpeg`,
     intro: 'Conferences, but in your home.',
+    searchPlaceholder: 'Search for ...',
+    emptyListText: 'No events found',
     twitter,
     github,
     menuLinks: [
