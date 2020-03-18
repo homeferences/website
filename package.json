@@ -1,8 +1,8 @@
 {
-  "name": "homeferences",
-  "version": "1.0.0",
-  "description": "Conferences, but in your home.",
-  "author": "@_luisFilipePT",
+  "name": "@homeferences/website",
+  "version": "0.0.0-development",
+  "description": "This is a Gatsby based static website, which renders the List of Homeferences.",
+  "homepage": "https://github.com/homeferences/website#readme",
   "dependencies": {
     "date-fns": "^2.11.0",
     "framer-motion": "^1.9.1",
@@ -34,7 +34,8 @@
   "keywords": [
     "conferences"
   ],
-  "license": "MIT",
+  "author": "Homeferences Contributors",
+  "license": "CC0-1.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
