@@ -170,8 +170,12 @@ export const ConferenceItem = ({ conference }) => (
       <Title>{conference.name}</Title>
       <Container>
         {conference.startDay && <Date>{conference.startDay}</Date>}
-        {conference.endDay && ` to `}
-        {conference.endDay && <Date>{conference.endDay}</Date>}
+        {conference.endDay !== conference.startDay && (
+          <>
+            {' '}
+            to <Date>{conference.endDay}</Date>
+          </>
+        )}
       </Container>
       <Excerpt>{conference.topic}</Excerpt>
       {conference.keywords && (
