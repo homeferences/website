@@ -22,8 +22,12 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-angular": "^8.3.4",
     "eslint": "^6.8.0",
     "eslint-config-gatsby-standard": "^2.2.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.19.1"
   },
   "keywords": [
@@ -45,5 +49,16 @@
   },
   "bugs": {
     "url": "https://github.com/homeferences/website/issues"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md,json,yaml,yml}": [
+      "prettier --write"
+    ]
   }
 }
