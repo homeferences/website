@@ -24,7 +24,7 @@ const IndexPage = () => {
       try {
         setLoading(true)
         const response = await fetch(URL)
-        let data = await response.json()
+        const data = await response.json()
 
         setConferences(data)
         setFilteredConferences(data)
@@ -40,14 +40,14 @@ const IndexPage = () => {
   const onSearch = query => {
     setFilteredConferences(
       conferences.filter(conference => {
-        let inDescription = conference.description
+        const inDescription = conference.description
           ? conference.description.toLowerCase().indexOf(query.toLowerCase()) >=
             0
           : false
-        let inTopic = conference.topic
+        const inTopic = conference.topic
           ? conference.topic.toLowerCase().indexOf(query.toLowerCase()) >= 0
           : false
-        let inTitle = conference.name
+        const inTitle = conference.name
           ? conference.name.toLowerCase().indexOf(query.toLowerCase()) >= 0
           : false
         return inDescription || inTopic || inTitle
