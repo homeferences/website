@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import Placeholder from './Placeholder'
+import parseISO from 'date-fns/parseISO'
+import isToday from 'date-fns/isToday'
 
 const List = styled.ul`
   margin: 3rem auto;
@@ -133,6 +135,27 @@ const Keywords = styled.ul`
   }
 `
 
+const twitterShareLink = conference => {
+  const today = isToday(parseISO(conference.startDay))
+  const text = ['Check out this #homeference:']
+  text.push(conference.twitter || conference.name)
+  text.push('is happening online')
+  text.push(today ? 'today' : `from ${conference.startDay}`)
+  if (conference.endDay !== conference.startDay) {
+    text.push(`to ${conference.endDay}`)
+  }
+  text.push(conference.url)
+  text.push('#homeferences')
+  text.push('🏠💻🤔💡')
+
+  if (conference.topic) {
+    text.push(conference.topic)
+  }
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+    text.join(' ')
+  )}`
+}
+
 export const ConferenceItem = ({ conference }) => (
   <Item key={conference.name}>
     <a href={conference.url}>
@@ -159,8 +182,9 @@ export const ConferenceItem = ({ conference }) => (
         </Keywords>
       )}
     </a>
-    {conference.twitter && (
-      <Links>
+
+    <Links>
+      {conference.twitter && (
         <IconLink
           href={`https://twitter.com/${conference.twitter.replace(/^@/, '')}`}
           target="_blank"
@@ -170,8 +194,16 @@ export const ConferenceItem = ({ conference }) => (
           <i data-feather="twitter"></i>
           {conference.twitter.replace(/^@/, '')}
         </IconLink>
-      </Links>
-    )}
+      )}
+      <IconLink
+        href={twitterShareLink(conference)}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i data-feather="share-2"></i>
+        Share on Twitter
+      </IconLink>
+    </Links>
   </Item>
 )
 
