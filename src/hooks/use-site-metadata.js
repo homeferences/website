@@ -8,6 +8,8 @@ export const useSiteMetadata = () => {
           siteMetadata {
             title
             description
+            searchPlaceholder
+            emptyListText
             image
             intro
             author
