@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 import styled from '@emotion/styled'
+import _ from 'lodash'
 
 const Form = styled.form`
   max-width: ${props => props.theme.sizes.maxWidth};
@@ -22,18 +23,30 @@ const ConferencesSearch = ({ onSearch }) => {
   const { searchPlaceholder } = useSiteMetadata()
   const [query, setQuery] = useState('')
 
-  const onSubmitHandler = e => {
-    e.preventDefault()
+  const debounce = _.debounce(function(e) {
     onSearch(query)
+  }, 250)
+
+  const throttle = _.throttle(function(e) {
+    onSearch(query)
+  }, 250)
+
+  const onSearchHandler = e => {
+    e.preventDefault()
+    if (query.length < 4) {
+      throttle()
+    } else {
+      debounce()
+    }
   }
 
   return (
-    <Form onSubmit={onSubmitHandler}>
+    <Form onSubmit={onSearchHandler}>
       <Input
         type="text"
         placeholder={searchPlaceholder}
         value={query}
-        onChange={e => setQuery(e.target.value)}
+        onChange={e => (setQuery(e.target.value), onSearchHandler(e))}
       />
     </Form>
   )
