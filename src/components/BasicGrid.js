@@ -177,7 +177,7 @@ export const ConferenceItem = ({ conference }) => (
         {!conference.image ? <Placeholder aspectRatio={2 / 1} /> : ''}
       </div>
     </a>
-    <a href={conference.url}>
+    <a href={conference.url} title={conference.name}>
       <Title>{conference.name}</Title>
       <Container>
         {conference.startDay && <Date>{conference.startDay}</Date>}
