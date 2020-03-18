@@ -41,7 +41,6 @@ const IndexPage = () => {
       )
       setLoading(false)
     } catch (e) {
-      console.log('error', e)
       setLoading(false)
     }
   }
