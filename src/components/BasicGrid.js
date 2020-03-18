@@ -170,7 +170,8 @@ export const ConferenceItem = ({ conference }) => (
         {conference.image && (
           <Cover
             aspectRatio={2 / 1}
-            style={{ backgroundImage: `url(${conference.image})` }}
+            className="lazyload"
+            data-bg={conference.image}
           />
         )}
         {!conference.image ? <Placeholder aspectRatio={2 / 1} /> : ''}

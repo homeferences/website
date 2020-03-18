@@ -23,6 +23,16 @@ export default function HTML(props) {
         {props.postBodyComponents}
         <script src="https://unpkg.com/feather-icons"></script>
         <script>feather.replace();</script>
+        <script
+          async
+          src="https://afarkas.github.io/lazysizes/lazysizes.min.js"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          async
+          src="https://afarkas.github.io/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js"
+          crossorigin="anonymous"
+        ></script>
       </body>
     </html>
   )
