@@ -11,7 +11,10 @@ const isFuture = conference => !isPast(conference)
 const Wrapper = styled.div`
   max-width: ${props => props.theme.sizes.maxWidth};
   width: 100%;
-  margin: 4rem auto 0;
+  margin: 2rem auto 0;
+  @media screen and (min-width: ${props => props.theme.responsive.large}) {
+    margin: 8rem auto 0;
+  }
   padding: 0 1.5rem;
   text-transform: ${props => (props.capitalize ? 'capitalize' : 'none')};
 `
