@@ -29,15 +29,15 @@ module.exports = {
         name: 'About',
         slug: '/about/',
       },
+      {
+        name: `@${twitter}`,
+        url: `https://twitter.com/${twitter}`,
+      },
     ],
     footerLinks: [
       {
         name: 'GitHub',
         url: github,
-      },
-      {
-        name: 'Twitter',
-        url: `https://twitter.com/${twitter}`,
       },
     ],
   },

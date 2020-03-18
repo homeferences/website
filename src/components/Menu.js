@@ -1,9 +1,9 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
-import styled from "@emotion/styled"
-import { motion } from "framer-motion"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
-import ColorToggle from "./ColorToggle"
+import React, { useState } from 'react'
+import { Link } from 'gatsby'
+import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
+import ColorToggle from './ColorToggle'
 
 const Header = styled.header`
   font-family: ${props => props.theme.fonts.body};
@@ -14,12 +14,12 @@ const Header = styled.header`
   right: 0;
   bottom: 0;
   left: 0;
-  max-height: ${props => (props.open ? "100%" : "60px")};
+  max-height: ${props => (props.open ? '100%' : '60px')};
   width: 100%;
   z-index: 99;
   display: flex;
   border-bottom: 1px solid ${props => props.theme.colors.border};
-  border-width: ${props => (props.open ? "0" : "1px")};
+  border-width: ${props => (props.open ? '0' : '1px')};
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     max-height: 60px;
     border-width: 1px;
@@ -35,7 +35,7 @@ const Nav = styled.nav`
 const List = styled.ul`
   position: relative;
   padding: 4rem 0 0 0;
-  pointer-events: ${props => (props.open ? "auto" : "none")};
+  pointer-events: ${props => (props.open ? 'auto' : 'none')};
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     pointer-events: auto;
     display: flex;
@@ -110,14 +110,14 @@ const Toggle = styled.button`
     height: 2px;
   }
   span:first-of-type {
-    transform: rotate(${props => (props.open ? "45deg" : "0")})
-      translateY(${props => (props.open ? "0" : ".35rem")});
+    transform: rotate(${props => (props.open ? '45deg' : '0')})
+      translateY(${props => (props.open ? '0' : '.35rem')});
   }
   span:nth-of-type(2n) {
-    transform: rotate(${props => (props.open ? "-45deg" : "0")})
-      translateY(${props => (props.open ? "0" : "-.35rem")});
+    transform: rotate(${props => (props.open ? '-45deg' : '0')})
+      translateY(${props => (props.open ? '0' : '-.35rem')});
     position: relative;
-    bottom: ${props => (props.open ? "2px" : "0")};
+    bottom: ${props => (props.open ? '2px' : '0')};
   }
 `
 
@@ -127,18 +127,18 @@ const Menu = () => {
 
   function toggle() {
     setIsOpen(!isOpen)
-    document.documentElement.classList.toggle("contain")
+    document.documentElement.classList.toggle('contain')
   }
 
   function close() {
     setIsOpen(false)
-    document.documentElement.classList.remove("contain")
+    document.documentElement.classList.remove('contain')
   }
 
   const itemVariants = {
     open: {
       opacity: 1,
-      visibility: "visible",
+      visibility: 'visible',
       transition: {
         duration: 0.3,
         delay: 0.2,
@@ -146,7 +146,7 @@ const Menu = () => {
     },
     closed: {
       opacity: 0,
-      visibility: "hidden",
+      visibility: 'hidden',
       transition: {
         duration: 0.3,
       },
@@ -165,18 +165,30 @@ const Menu = () => {
             <Item
               initial={false}
               variants={itemVariants}
-              animate={isOpen ? "open" : "closed"}
+              animate={isOpen ? 'open' : 'closed'}
               key={link.name}
             >
-              <Link to={link.slug} onClick={close}>
-                {link.name}
-              </Link>
+              {link.slug && (
+                <Link to={link.slug} onClick={close}>
+                  {link.name}
+                </Link>
+              )}
+              {link.url && (
+                <a
+                  href={link.url}
+                  onClick={close}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.name}
+                </a>
+              )}
             </Item>
           ))}
           <Item
             initial={false}
             variants={itemVariants}
-            animate={isOpen ? "open" : "closed"}
+            animate={isOpen ? 'open' : 'closed'}
           >
             <ColorToggle />
           </Item>
