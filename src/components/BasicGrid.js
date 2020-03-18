@@ -13,8 +13,15 @@ const List = styled.ul`
   justify-content: space-between;
 `
 
-const Cover = styled.img`
+const Cover = styled.div`
+  width: 100%;
+  background: ${props => props.theme.colors.border};
+  padding-bottom: 60%;
+  padding-bottom: calc(1 / (${props => props.aspectRatio}) * 100%);
+  position: relative;
   transition: opacity 0.4s;
+  background-position: center;
+  background-size: cover;
   img {
     transition: transform 0.6s !important;
   }
@@ -161,9 +168,12 @@ export const ConferenceItem = ({ conference }) => (
     <a href={conference.url}>
       <div>
         {conference.image && (
-          <Cover src={conference.image} alt="Conference image" />
+          <Cover
+            aspectRatio={2 / 1}
+            style={{ backgroundImage: `url(${conference.image})` }}
+          />
         )}
-        {!conference.image ? <Placeholder aspectRatio={5 / 3} /> : ''}
+        {!conference.image ? <Placeholder aspectRatio={2 / 1} /> : ''}
       </div>
     </a>
     <a href={conference.url}>
