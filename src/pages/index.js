@@ -31,7 +31,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO />
       <Container fullWidth noPadding>
         <Intro text={intro} />
         {conferences.length > 0 && (
