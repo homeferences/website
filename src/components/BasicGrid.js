@@ -113,6 +113,26 @@ const IconLink = styled.a`
   }
 `
 
+const Keywords = styled.ul`
+  margin-top: 0.5rem;
+  list-style: none;
+  font-size: 75%;
+  opacity: 0.75;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    :after {
+      content: ',';
+    }
+    margin-right: 0.25rem;
+  }
+  li:last-child {
+    :after {
+      content: '';
+    }
+  }
+`
+
 const BasicGrid = ({ conferences }) => {
   useEffect(() => {
     feather.replace()
@@ -137,6 +157,13 @@ const BasicGrid = ({ conferences }) => {
               {conference.endDay && <Date>{conference.endDay}</Date>}
             </Container>
             <Excerpt>{conference.topic}</Excerpt>
+            {conference.keywords && (
+              <Keywords>
+                {conference.keywords.map((k, i) => (
+                  <li key={i}>{k}</li>
+                ))}
+              </Keywords>
+            )}
           </a>
           {conference.twitter && (
             <Links>
