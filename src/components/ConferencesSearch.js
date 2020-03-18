@@ -8,6 +8,7 @@ const Form = styled.form`
   margin: 4rem auto 0;
   padding: 0 1.5rem;
   text-transform: ${props => (props.capitalize ? 'capitalize' : 'none')};
+  position: relative;
 `
 
 const Input = styled.input`
@@ -18,23 +19,54 @@ const Input = styled.input`
   width: 100%;
 `
 
+const ClearButton = styled.button`
+  border: none;
+  outline: none;
+  padding: 3px 3px;
+  background: transparent;
+  color: ${props => props.theme.colors.secondary};
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2em;
+  border-radius: 3px;
+
+  :hover {
+    cursor: pointer;
+  }
+`
+
 const ConferencesSearch = ({ onSearch }) => {
   const { searchPlaceholder } = useSiteMetadata()
   const [query, setQuery] = useState('')
 
-  const onSubmitHandler = e => {
-    e.preventDefault()
-    onSearch(query)
+  const clearHandler = () => {
+    setQuery('')
+    onSearch('')
   }
 
   return (
-    <Form onSubmit={onSubmitHandler}>
+    <Form>
       <Input
         type="text"
         placeholder={searchPlaceholder}
         value={query}
-        onChange={e => setQuery(e.target.value)}
+        onChange={({ target: { value } }) => {
+          setQuery(value)
+          onSearch(value)
+        }}
+        onKeyUp={({ keyCode }) => {
+          if (keyCode === 27) {
+            clearHandler()
+          }
+        }}
       />
+      {query.length > 0 && (
+        <ClearButton type="button" onClick={clearHandler}>
+          <i data-feather="x"></i>
+        </ClearButton>
+      )}
     </Form>
   )
 }
