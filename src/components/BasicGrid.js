@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import Placeholder from './Placeholder'
 
@@ -100,7 +100,23 @@ const Tag = styled.span`
     }
   }
 `
+
+const Links = styled.p`
+  margin-top: 1rem;
+`
+
+const IconLink = styled.a`
+  display: flex;
+  align-items: center;
+  svg.feather {
+    margin-right: 0.25rem;
+  }
+`
+
 const BasicGrid = ({ conferences }) => {
+  useEffect(() => {
+    feather.replace()
+  })
   return (
     <List>
       {conferences.map(conference => (
@@ -115,27 +131,29 @@ const BasicGrid = ({ conferences }) => {
           </a>
           <a href={conference.url}>
             <Title>{conference.name}</Title>
+            <Container>
+              {conference.startDay && <Date>{conference.startDay}</Date>}
+              {conference.endDay && ` to `}
+              {conference.endDay && <Date>{conference.endDay}</Date>}
+            </Container>
             <Excerpt>{conference.topic}</Excerpt>
           </a>
-          <Container>
-            {conference.startDay && <Date>{conference.startDay}</Date>}
-            {conference.endDay && ` to `}
-            {conference.endDay && <Date>{conference.endDay}</Date>}
-            {/*{post.tags && (*/}
-            {/*  <>*/}
-            {/*    <Divider>/</Divider>*/}
-            {/*    {post.tags.map(tag => (*/}
-            {/*      <Tag key={tag}>*/}
-            {/*        <Link*/}
-            {/*          to={`${props.context.basePath}/tag/${_.kebabCase(tag)}/`}*/}
-            {/*        >*/}
-            {/*          {tag}*/}
-            {/*        </Link>*/}
-            {/*      </Tag>*/}
-            {/*    ))}*/}
-            {/*  </>*/}
-            {/*)}*/}
-          </Container>
+          {conference.twitter && (
+            <Links>
+              <IconLink
+                href={`https://twitter.com/${conference.twitter.replace(
+                  /^@/,
+                  ''
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`${conference.name} on Twitter`}
+              >
+                <i data-feather="twitter"></i>
+                {conference.twitter.replace(/^@/, '')}
+              </IconLink>
+            </Links>
+          )}
         </Item>
       ))}
     </List>

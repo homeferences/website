@@ -1,9 +1,9 @@
-import React, { useEffect } from "react"
-import styled from "@emotion/styled"
-import { Global } from "@emotion/core"
-import { globalStyles } from "../styles/globalStyles.js"
-import Menu from "./Menu"
-import Footer from "./Footer"
+import React, { useEffect } from 'react'
+import styled from '@emotion/styled'
+import { Global } from '@emotion/core'
+import { globalStyles } from '../styles/globalStyles.js'
+import Menu from './Menu'
+import Footer from './Footer'
 
 const Skip = styled.a`
   padding: 0 1rem;
@@ -44,11 +44,11 @@ const Root = styled.main`
 const Layout = props => {
   function handleFirstTab(e) {
     if (e.keyCode === 9) {
-      document.body.classList.add("user-is-tabbing")
+      document.body.classList.add('user-is-tabbing')
     }
   }
 
-  useEffect(() => window.addEventListener("keydown", handleFirstTab), [])
+  useEffect(() => window.addEventListener('keydown', handleFirstTab), [])
 
   return (
     <>
