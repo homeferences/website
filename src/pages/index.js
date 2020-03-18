@@ -39,19 +39,10 @@ const IndexPage = () => {
 
   const onSearch = query => {
     setFilteredConferences(
-      conferences.filter(conference => {
-        const inDescription = conference.description
-          ? conference.description.toLowerCase().indexOf(query.toLowerCase()) >=
-            0
-          : false
-        const inTopic = conference.topic
-          ? conference.topic.toLowerCase().indexOf(query.toLowerCase()) >= 0
-          : false
-        const inTitle = conference.name
-          ? conference.name.toLowerCase().indexOf(query.toLowerCase()) >= 0
-          : false
-        return inDescription || inTopic || inTitle
-      })
+      conferences.filter(
+        ({ topic, name }) =>
+          `${name} ${topic}`.toLowerCase().indexOf(query.toLowerCase()) >= 0
+      )
     )
   }
 
