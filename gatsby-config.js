@@ -1,30 +1,35 @@
+const twitter = 'homeferences'
+const github = 'https://github.com/homeferences'
+
 module.exports = {
   siteMetadata: {
-    title: "Homeferences",
+    title: 'Homeferences',
     description:
-      "Homeferences are Conferences which happen virtually, so you can attend from your home.",
-    url: "https://homeferences.netlify.com/",
-    author: "@homeferences",
+      'Homeferences are Conferences which happen virtually, so you can attend from your home.',
+    url: 'https://homeferences.netlify.com/',
+    author: '@homeferences',
     image: `${__dirname}/src/images/homeferences.jpeg`,
-    intro: "Conferences, but in your home.",
+    intro: 'Conferences, but in your home.',
+    twitter,
+    github,
     menuLinks: [
       {
-        name: "Homeferences",
-        slug: "/",
+        name: 'Homeferences',
+        slug: '/',
       },
       {
-        name: "About",
-        slug: "/about/",
+        name: 'About',
+        slug: '/about/',
       },
     ],
     footerLinks: [
       {
-        name: "GitHub",
-        url: "https://github.com/homeferences/website",
+        name: 'GitHub',
+        url: github,
       },
       {
-        name: "Twitter",
-        url: "https://twitter.com/homeferences",
+        name: 'Twitter',
+        url: `https://twitter.com/${twitter}`,
       },
     ],
   },

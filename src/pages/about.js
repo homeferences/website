@@ -1,8 +1,9 @@
-import React from "react"
-import styled from "@emotion/styled"
-import Container from "../components/Container"
-import SEO from "../components/SEO"
-import Layout from "../components/Layout"
+import React from 'react'
+import styled from '@emotion/styled'
+import Container from '../components/Container'
+import SEO from '../components/SEO'
+import Layout from '../components/Layout'
+import { useStaticQuery, graphql } from 'gatsby'
 
 const Title = styled.h1`
   font-weight: ${props => props.theme.fonts.boldWeight};
@@ -44,24 +45,71 @@ const Content = styled.div`
 `
 
 const About = ({ data }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            twitter
+            github
+          }
+        }
+      }
+    `
+  )
   return (
     <Layout>
       <Container>
         <SEO title="About" description="About Homeferences" />
-        <Title>Conferences, but in your home.</Title>
+        <Title>About</Title>
         <Content>
           <p>
-            Contributions are welcome{" "}
+            This is a{' '}
             <a
-              href="https://github.com/homeferences/website"
+              href="https://www.gatsbyjs.org/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              check the repo
-            </a>{" "}
+              Gatsby
+            </a>{' '}
+            based static website, which renders the{' '}
+            <a
+              href="https://github.com/homeferences/list"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              List of Homeferences
+            </a>
             .
           </p>
-          <p>This page will be updated soon with more info!</p>
+          <blockquote>
+            <p>
+              <em>Homeferences</em> are Conferences which happen virtually, so
+              you can attend from your home.
+            </p>
+          </blockquote>
+          <p>
+            Follow the Twitter account{' '}
+            <a
+              href={`https://twitter.com/${site.siteMetadata.twitter}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @{site.siteMetadata.twitter}
+            </a>{' '}
+            to stay up to date.
+          </p>
+          <p>
+            Please check out our GitHub repositories and contribute:{' '}
+            <a
+              href={site.siteMetadata.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {site.siteMetadata.github}
+            </a>
+            .
+          </p>
         </Content>
       </Container>
     </Layout>
