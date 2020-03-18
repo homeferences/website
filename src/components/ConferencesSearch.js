@@ -9,6 +9,7 @@ const Form = styled.form`
   margin: 4rem auto 0;
   padding: 0 1.5rem;
   text-transform: ${props => (props.capitalize ? 'capitalize' : 'none')};
+  position: relative;
 `
 
 const Input = styled.input`
@@ -17,6 +18,24 @@ const Input = styled.input`
   border-bottom: 3px solid ${props => props.theme.colors.border};
   color: ${props => props.theme.colors.secondary};
   width: 100%;
+`
+
+const ClearButton = styled.button`
+  border: none;
+  outline: none;
+  padding: 3px 3px;
+  background: transparent;
+  color: ${props => props.theme.colors.secondary};
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2em;
+  border-radius: 3px;
+
+  :hover {
+    cursor: pointer;
+  }
 `
 
 const ConferencesSearch = ({ onSearch }) => {
@@ -40,6 +59,11 @@ const ConferencesSearch = ({ onSearch }) => {
     }
   }
 
+  const clearHandler = () => {
+    setQuery('')
+    onSearch('')
+  }
+
   return (
     <Form onSubmit={onSearchHandler}>
       <Input
@@ -48,6 +72,19 @@ const ConferencesSearch = ({ onSearch }) => {
         value={query}
         onChange={e => (setQuery(e.target.value), onSearchHandler(e))}
       />
+      {query.length > 0 && (
+        <ClearButton type="button" onClick={clearHandler}>
+          <svg
+            enableBackground={'new 0 0 386.667 386.667'}
+            height="10"
+            viewBox="0 0 386.667 386.667"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="m386.667 45.564-45.564-45.564-147.77 147.769-147.769-147.769-45.564 45.564 147.769 147.769-147.769 147.77 45.564 45.564 147.769-147.769 147.769 147.769 45.564-45.564-147.768-147.77z" />
+          </svg>
+        </ClearButton>
+      )}
     </Form>
   )
 }
