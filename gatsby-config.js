@@ -18,6 +18,14 @@ module.exports = {
         slug: '/',
       },
       {
+        name: 'Upcoming',
+        slug: '/#upcoming',
+      },
+      {
+        name: 'Past',
+        slug: '/#past',
+      },
+      {
         name: 'About',
         slug: '/about/',
       },

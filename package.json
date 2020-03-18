@@ -4,6 +4,7 @@
   "description": "Conferences, but in your home.",
   "author": "@_luisFilipePT",
   "dependencies": {
+    "date-fns": "^2.11.0",
     "framer-motion": "^1.9.1",
     "gatsby": "^2.19.43",
     "gatsby-image": "^2.2.43",

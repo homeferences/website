@@ -133,55 +133,56 @@ const Keywords = styled.ul`
   }
 `
 
+export const ConferenceItem = ({ conference }) => (
+  <Item key={conference.name}>
+    <a href={conference.url}>
+      <div>
+        {conference.image && (
+          <Cover src={conference.image} alt="Conference image" />
+        )}
+        {!conference.image ? <Placeholder aspectRatio={5 / 3} /> : ''}
+      </div>
+    </a>
+    <a href={conference.url}>
+      <Title>{conference.name}</Title>
+      <Container>
+        {conference.startDay && <Date>{conference.startDay}</Date>}
+        {conference.endDay && ` to `}
+        {conference.endDay && <Date>{conference.endDay}</Date>}
+      </Container>
+      <Excerpt>{conference.topic}</Excerpt>
+      {conference.keywords && (
+        <Keywords>
+          {conference.keywords.map((k, i) => (
+            <li key={i}>{k}</li>
+          ))}
+        </Keywords>
+      )}
+    </a>
+    {conference.twitter && (
+      <Links>
+        <IconLink
+          href={`https://twitter.com/${conference.twitter.replace(/^@/, '')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={`${conference.name} on Twitter`}
+        >
+          <i data-feather="twitter"></i>
+          {conference.twitter.replace(/^@/, '')}
+        </IconLink>
+      </Links>
+    )}
+  </Item>
+)
+
 const BasicGrid = ({ conferences }) => {
   useEffect(() => {
     feather.replace()
   })
   return (
     <List>
-      {conferences.map(conference => (
-        <Item key={conference.name}>
-          <a href={conference.url}>
-            <div>
-              {conference.image && (
-                <Cover src={conference.image} alt="Conference image" />
-              )}
-              {!conference.image ? <Placeholder aspectRatio={5 / 3} /> : ''}
-            </div>
-          </a>
-          <a href={conference.url}>
-            <Title>{conference.name}</Title>
-            <Container>
-              {conference.startDay && <Date>{conference.startDay}</Date>}
-              {conference.endDay && ` to `}
-              {conference.endDay && <Date>{conference.endDay}</Date>}
-            </Container>
-            <Excerpt>{conference.topic}</Excerpt>
-            {conference.keywords && (
-              <Keywords>
-                {conference.keywords.map((k, i) => (
-                  <li key={i}>{k}</li>
-                ))}
-              </Keywords>
-            )}
-          </a>
-          {conference.twitter && (
-            <Links>
-              <IconLink
-                href={`https://twitter.com/${conference.twitter.replace(
-                  /^@/,
-                  ''
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={`${conference.name} on Twitter`}
-              >
-                <i data-feather="twitter"></i>
-                {conference.twitter.replace(/^@/, '')}
-              </IconLink>
-            </Links>
-          )}
-        </Item>
+      {conferences.map((conference, k) => (
+        <ConferenceItem conference={conference} key={k} />
       ))}
     </List>
   )
