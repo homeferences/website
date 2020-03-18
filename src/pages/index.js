@@ -15,43 +15,43 @@ const URL = 'https://homeferences.github.io/list/homeferences.json'
 const IndexPage = () => {
   const [conferences, setConferences] = useState([])
   const [loading, setLoading] = useState(true)
+  const [filteredConferences, setFilteredConferences] = useState([])
   const { intro } = useSiteMetadata()
 
-  const fetchData = async (query = '') => {
-    try {
-      setLoading(true)
-      const response = await fetch(URL)
-      let data = await response.json()
-
-      setConferences(
-        data.filter(conference => {
-          let inDescription = conference.description
-            ? conference.description
-                .toLowerCase()
-                .indexOf(query.toLowerCase()) >= 0
-            : false
-          let inTopic = conference.topic
-            ? conference.topic.toLowerCase().indexOf(query.toLowerCase()) >= 0
-            : false
-          let inTitle = conference.name
-            ? conference.name.toLowerCase().indexOf(query.toLowerCase()) >= 0
-            : false
-          return inDescription || inTopic || inTitle
-        })
-      )
-      setLoading(false)
-    } catch (e) {
-      setLoading(false)
-    }
-  }
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch(URL)
+        let data = await response.json()
+
+        setConferences(data)
+        setFilteredConferences(data)
+        setLoading(false)
+      } catch (e) {
+        setLoading(false)
+      }
+    }
+
     fetchData()
   }, [])
 
   const onSearch = query => {
-    setConferences([])
-    fetchData(query)
+    setFilteredConferences(
+      conferences.filter(conference => {
+        let inDescription = conference.description
+          ? conference.description.toLowerCase().indexOf(query.toLowerCase()) >=
+            0
+          : false
+        let inTopic = conference.topic
+          ? conference.topic.toLowerCase().indexOf(query.toLowerCase()) >= 0
+          : false
+        let inTitle = conference.name
+          ? conference.name.toLowerCase().indexOf(query.toLowerCase()) >= 0
+          : false
+        return inDescription || inTopic || inTitle
+      })
+    )
   }
 
   return (
@@ -60,17 +60,17 @@ const IndexPage = () => {
       <Container fullWidth noPadding>
         <Intro text={intro} />
         <ConferencesSearch onSearch={onSearch} />
-        {!loading && conferences.length > 0 && (
-          <ConferencesList conferences={conferences} />
+        {!loading && filteredConferences.length > 0 && (
+          <ConferencesList conferences={filteredConferences} />
         )}
 
-        {loading && conferences.length === 0 && (
+        {loading && filteredConferences.length === 0 && (
           <div style={{ width: '100hw', textAlign: 'center' }}>
             <Spinner />
           </div>
         )}
 
-        {!loading && conferences.length === 0 && (
+        {!loading && filteredConferences.length === 0 && (
           <div style={{ width: '100hw', textAlign: 'center' }}>
             <EmptyListText />
           </div>
