@@ -8,7 +8,6 @@ import { useSiteMetadata } from '../hooks/use-site-metadata'
 import Intro from '../components/Intro'
 import ConferencesList from '../components/ConferencesList'
 import ConferencesSearch from '../components/ConferencesSearch'
-import EmptyListText from '../components/EmptyListText'
 import debounce from 'lodash/debounce'
 
 const URL = 'https://homeferences.github.io/list/homeferences.json'
@@ -52,19 +51,11 @@ const IndexPage = () => {
       <Container fullWidth noPadding>
         <Intro text={intro} />
         <ConferencesSearch onSearch={debounce(onSearch, 250)} />
-        {!loading && filteredConferences.length > 0 && (
-          <ConferencesList conferences={filteredConferences} />
-        )}
+        {!loading && <ConferencesList conferences={filteredConferences} />}
 
-        {loading && filteredConferences.length === 0 && (
+        {loading && (
           <div style={{ width: '100hw', textAlign: 'center' }}>
             <Spinner />
-          </div>
-        )}
-
-        {!loading && filteredConferences.length === 0 && (
-          <div style={{ width: '100hw', textAlign: 'center' }}>
-            <EmptyListText />
           </div>
         )}
       </Container>

@@ -26,21 +26,49 @@ const Title = styled.h3`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     max-width: 70%;
   }
+  display: flex;
+  align-items: center;
+  small {
+    font-size: 50%;
+    opacity: 0.7;
+    margin-left: 0.5rem;
+  }
 `
 
-const ConferencesList = ({ conferences, ...props }) => (
-  <>
-    <a name="upcoming"></a>
-    <Wrapper>
-      <Title>Upcoming Homeferences</Title>
-    </Wrapper>
-    <BasicGrid conferences={conferences.filter(isFuture)} {...props} />
-    <a name="past"></a>
-    <Wrapper>
-      <Title>Past Homeferences</Title>
-    </Wrapper>
-    <BasicGrid conferences={conferences.filter(isPast)} {...props} />
-  </>
-)
+const ConferencesList = ({ conferences, ...props }) => {
+  const upcoming = conferences.filter(isFuture)
+  const past = conferences.filter(isPast)
+  return (
+    <>
+      <a name="upcoming"></a>
+      {upcoming.length === 0 && (
+        <Wrapper>
+          <Title>No upcoming Homeferences found</Title>
+        </Wrapper>
+      )}
+      {upcoming.length > 0 && (
+        <>
+          <Wrapper>
+            <Title>
+              Upcoming Homeferences <small>({upcoming.length})</small>
+            </Title>
+          </Wrapper>
+          <BasicGrid conferences={upcoming} {...props} />
+        </>
+      )}
+      <a name="past"></a>
+      {past.length > 0 && (
+        <>
+          <Wrapper>
+            <Title>
+              Past Homeferences <small>({past.length})</small>
+            </Title>
+          </Wrapper>
+        </>
+      )}
+      <BasicGrid conferences={past} {...props} />
+    </>
+  )
+}
 
 export default ConferencesList
