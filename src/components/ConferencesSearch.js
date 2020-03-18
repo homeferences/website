@@ -56,6 +56,11 @@ const ConferencesSearch = ({ onSearch }) => {
           setQuery(value)
           onSearch(value)
         }}
+        onKeyUp={({ keyCode }) => {
+          if (keyCode === 27) {
+            clearHandler()
+          }
+        }}
       />
       {query.length > 0 && (
         <ClearButton type="button" onClick={clearHandler}>
