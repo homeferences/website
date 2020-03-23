@@ -72,7 +72,6 @@ module.exports = {
         theme_color: `#f5f0eb`,
         start_url: `/`,
         display: `standalone`,
-        icon: `src/images/homeferences-icon.jpg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
