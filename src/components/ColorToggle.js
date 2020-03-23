@@ -22,11 +22,12 @@ const Wrapper = styled.button`
   }
 `
 
-const ColorToggle = props => {
+const ColorToggle = () => {
   const [colorMode, setColorMode] = useColorMode()
   const nextColorMode = colorMode === 'default' ? 'dark' : 'default'
   return (
     <Wrapper
+      title={`Switch to ${nextColorMode} mode`}
       onClick={() => setColorMode(nextColorMode)}
       flip={colorMode === 'dark'}
     >
