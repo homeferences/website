@@ -72,7 +72,6 @@ module.exports = {
         theme_color: `#f5f0eb`,
         start_url: `/`,
         display: `standalone`,
-        icon: require.resolve('./src/images/favicon.png'),
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
