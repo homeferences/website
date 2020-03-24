@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
+import { Grid } from 'theme-ui'
 import Placeholder from './Placeholder'
 import parseISO from 'date-fns/parseISO'
 import isToday from 'date-fns/isToday'
@@ -198,9 +199,18 @@ export const ConferenceItem = ({ conference }) => (
       )}
     </a>
 
-    <Links>
+    <Grid columns={2} py={12}>
+      <IconLink
+        href={twitterShareLink(conference)}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i data-feather="share-2"></i>
+        Share on Twitter
+      </IconLink>
       {conference.twitter && (
         <IconLink
+          sx={{ textAlign: 'right' }}
           href={`https://twitter.com/${conference.twitter.replace(/^@/, '')}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -210,15 +220,7 @@ export const ConferenceItem = ({ conference }) => (
           {conference.twitter.replace(/^@/, '')}
         </IconLink>
       )}
-      <IconLink
-        href={twitterShareLink(conference)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i data-feather="share-2"></i>
-        Share on Twitter
-      </IconLink>
-    </Links>
+    </Grid>
   </Item>
 )
 
