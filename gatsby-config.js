@@ -14,7 +14,7 @@ module.exports = {
       'Homeferences are Conferences which happen virtually, so you can attend from your home.',
     url: 'https://homeferences.netlify.com/',
     author: author,
-    image: `${__dirname}/src/images/homeferences.jpeg`,
+    image: `https://homeferences.netlify.com/og-image.jpeg`,
     intro: 'Conferences, but in your home.',
     searchPlaceholder: 'Search for ...',
     emptyListText: 'No events found',
@@ -72,6 +72,7 @@ module.exports = {
         theme_color: `#f5f0eb`,
         start_url: `/`,
         display: `standalone`,
+        icon: require.resolve('./src/images/favicon.png'),
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -111,10 +111,6 @@ const Tag = styled.span`
   }
 `
 
-const Links = styled.p`
-  margin-top: 1rem;
-`
-
 const IconLink = styled.a`
   display: flex;
   align-items: center;
@@ -198,8 +194,7 @@ export const ConferenceItem = ({ conference }) => (
         </Keywords>
       )}
     </a>
-
-    <Grid columns={2} py={12}>
+    <Grid columns={2} py={14}>
       <IconLink
         href={twitterShareLink(conference)}
         target="_blank"

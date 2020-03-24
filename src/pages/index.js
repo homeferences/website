@@ -52,7 +52,6 @@ const IndexPage = () => {
         <Intro text={intro} />
         <ConferencesSearch onSearch={debounce(onSearch, 250)} />
         {!loading && <ConferencesList conferences={filteredConferences} />}
-
         {loading && (
           <div style={{ width: '100hw', textAlign: 'center' }}>
             <Spinner />
