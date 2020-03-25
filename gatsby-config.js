@@ -14,7 +14,7 @@ module.exports = {
       'Homeferences are Conferences which happen virtually, so you can attend from your home.',
     url: 'https://homeferences.netlify.com/',
     author: author,
-    image: `${__dirname}/src/images/homeferences.jpeg`,
+    image: `og-image.jpeg`,
     intro: 'Conferences, but in your home.',
     searchPlaceholder: 'Search for ...',
     emptyListText: 'No events found',
@@ -54,13 +54,6 @@ module.exports = {
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
