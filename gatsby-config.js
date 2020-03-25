@@ -73,6 +73,7 @@ module.exports = {
         start_url: `/`,
         display: `standalone`,
         icons: [],
+        legacy: false,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
