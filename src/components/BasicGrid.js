@@ -194,7 +194,7 @@ export const ConferenceItem = ({ conference }) => (
         </Keywords>
       )}
     </a>
-    <Grid columns={2} py={14}>
+    <Grid columns={[1, 1, 2]} py={14}>
       <IconLink
         href={twitterShareLink(conference)}
         target="_blank"
@@ -205,7 +205,6 @@ export const ConferenceItem = ({ conference }) => (
       </IconLink>
       {conference.twitter && (
         <IconLink
-          sx={{ textAlign: 'right' }}
           href={`https://twitter.com/${conference.twitter.replace(/^@/, '')}`}
           target="_blank"
           rel="noopener noreferrer"
