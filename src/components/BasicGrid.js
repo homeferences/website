@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
+import { Grid } from 'theme-ui'
 import Placeholder from './Placeholder'
 import parseISO from 'date-fns/parseISO'
 import isToday from 'date-fns/isToday'
 
 const List = styled.ul`
   margin: 3rem auto;
-  max-width: ${props => props.theme.sizes.maxWidth};
+  max-width: ${(props) => props.theme.sizes.maxWidth};
   padding: 0 1.5rem;
   display: flex;
   flex-flow: row wrap;
@@ -15,9 +16,9 @@ const List = styled.ul`
 
 const Cover = styled.div`
   width: 100%;
-  background: ${props => props.theme.colors.border};
+  background: ${(props) => props.theme.colors.border};
   padding-bottom: 60%;
-  padding-bottom: calc(1 / (${props => props.aspectRatio}) * 100%);
+  padding-bottom: calc(1 / (${(props) => props.aspectRatio}) * 100%);
   position: relative;
   transition: opacity 0.4s;
   background-position: center;
@@ -40,45 +41,45 @@ const Item = styled.li`
   display: inline-block;
   flex: 0 100%;
   margin: 0 0 2rem;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.small}) {
     flex: 0 49%;
   }
   a {
     text-decoration: none;
     transition: color 0.3s;
-    color: ${props => props.theme.colors.tertiary};
+    color: ${(props) => props.theme.colors.tertiary};
     &:hover {
-      color: ${props => props.theme.colors.highlight};
+      color: ${(props) => props.theme.colors.highlight};
     }
     @media (hover: none) {
-      color: ${props => props.theme.colors.tertiary} !important;
+      color: ${(props) => props.theme.colors.tertiary} !important;
     }
   }
 `
 
 const Title = styled.h2`
   transition: color 0.3s;
-  color: ${props => props.theme.colors.text};
-  font-weight: ${props => props.theme.fonts.boldWeight};
+  color: ${(props) => props.theme.colors.text};
+  font-weight: ${(props) => props.theme.fonts.boldWeight};
   margin: 1rem 0 0 0;
   display: block;
   line-height: 1.25;
   font-size: 1rem;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.small}) {
     font-size: 1.1rem;
   }
   &:hover {
-    color: ${props => props.theme.colors.highlight};
+    color: ${(props) => props.theme.colors.highlight};
   }
   @media (hover: none) {
-    color: ${props => props.theme.colors.text} !important;
+    color: ${(props) => props.theme.colors.text} !important;
   }
 `
 
 const Excerpt = styled.p`
   padding: 0.5rem 0 0 0;
   line-height: 1.5;
-  color: ${props => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.secondary};
 `
 
 const Container = styled.div`
@@ -89,12 +90,12 @@ const Container = styled.div`
 
 const Divider = styled.span`
   margin: 0 0.25rem;
-  color: ${props => props.theme.colors.border};
+  color: ${(props) => props.theme.colors.border};
 `
 
 const Date = styled.span`
   display: inline-block;
-  color: ${props => props.theme.colors.tertiary};
+  color: ${(props) => props.theme.colors.tertiary};
 `
 
 const Tag = styled.span`
@@ -103,15 +104,11 @@ const Tag = styled.span`
   text-transform: capitalize;
   a {
     text-decoration: underline;
-    color: ${props => props.theme.colors.tertiary};
+    color: ${(props) => props.theme.colors.tertiary};
     @media (hover: none) {
-      color: ${props => props.theme.colors.tertiary} !important;
+      color: ${(props) => props.theme.colors.tertiary} !important;
     }
   }
-`
-
-const Links = styled.p`
-  margin-top: 1rem;
 `
 
 const IconLink = styled.a`
@@ -142,7 +139,7 @@ const Keywords = styled.ul`
   }
 `
 
-const twitterShareLink = conference => {
+const twitterShareLink = (conference) => {
   const today = isToday(parseISO(conference.startDay))
   const text = ['Check out this #homeference:']
   text.push(conference.twitter || conference.name)
@@ -197,8 +194,15 @@ export const ConferenceItem = ({ conference }) => (
         </Keywords>
       )}
     </a>
-
-    <Links>
+    <Grid columns={[1, 1, 2]} py={14}>
+      <IconLink
+        href={twitterShareLink(conference)}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i data-feather="share-2"></i>
+        Share on Twitter
+      </IconLink>
       {conference.twitter && (
         <IconLink
           href={`https://twitter.com/${conference.twitter.replace(/^@/, '')}`}
@@ -210,15 +214,7 @@ export const ConferenceItem = ({ conference }) => (
           {conference.twitter.replace(/^@/, '')}
         </IconLink>
       )}
-      <IconLink
-        href={twitterShareLink(conference)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i data-feather="share-2"></i>
-        Share on Twitter
-      </IconLink>
-    </Links>
+    </Grid>
   </Item>
 )
 
