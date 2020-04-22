@@ -5,7 +5,7 @@
   "homepage": "https://github.com/homeferences/website#readme",
   "dependencies": {
     "date-fns": "^2.11.0",
-    "framer-motion": "^1.10.2",
+    "framer-motion": "^1.10.3",
     "gatsby": "^2.20.6",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-emotion": "^4.2.1",
