@@ -6,40 +6,40 @@ import Layout from '../components/Layout'
 import { useStaticQuery, graphql } from 'gatsby'
 
 const Title = styled.h1`
-  font-weight: ${props => props.theme.fonts.boldWeight};
+  font-weight: ${(props) => props.theme.fonts.boldWeight};
   line-height: 1.25;
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  max-width: ${(props) => props.theme.sizes.maxWidthCentered};
   margin: 0 auto 1rem;
   font-size: 2rem;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.small}) {
     font-size: 2.5rem;
   }
 `
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  max-width: ${(props) => props.theme.sizes.maxWidthCentered};
   p {
     line-height: 1.5;
     margin: 0 0 1.75rem;
   }
   a {
     transition: 0.3s color;
-    color: ${props => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.secondary};
     text-decoration: underline;
     &:hover {
-      color: ${props => props.theme.colors.highlight};
+      color: ${(props) => props.theme.colors.highlight};
     }
     @media (hover: none) {
-      color: ${props => props.theme.colors.secondary} !important;
+      color: ${(props) => props.theme.colors.secondary} !important;
     }
   }
   code {
-    font-family: ${props => props.theme.fonts.monospace};
+    font-family: ${(props) => props.theme.fonts.monospace};
     font-size: 0.9rem;
     padding: 0.25rem;
-    background: ${props => props.theme.colors.code};
-    color: ${props => props.theme.colors.text};
+    background: ${(props) => props.theme.colors.code};
+    color: ${(props) => props.theme.colors.text};
     border-radius: 0.3em;
   }
 `
@@ -84,8 +84,8 @@ const About = ({ data }) => {
           </p>
           <blockquote>
             <p>
-              <em>Homeferences</em> are Conferences which happen virtually, so
-              you can attend from your home.
+              A Homeference (<code>\ ˈhōm-f(ə-)rən(t)s \</code>) is a conference
+              which happens virtually, so you can attend from your home.
             </p>
           </blockquote>
           <p>

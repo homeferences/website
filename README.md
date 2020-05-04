@@ -1,6 +1,6 @@
 # Website for Homeferences
 
-This is a [Gatsby](https://www.gatsbyjs.org/) based static website, which renders the [List of Homeferences](https://github.com/homeferences/list).
+This is a [Gatsby](https://www.gatsbyjs.org/) based static website which renders the [List of Homeferences](https://github.com/homeferences/list).
 
 ## Development
 

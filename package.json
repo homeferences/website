@@ -1,7 +1,7 @@
 {
   "name": "@homeferences/website",
   "version": "0.0.0-development",
-  "description": "This is a Gatsby based static website, which renders the List of Homeferences.",
+  "description": "This is a Gatsby based static website which renders the List of Homeferences.",
   "homepage": "https://github.com/homeferences/website#readme",
   "dependencies": {
     "date-fns": "^2.12.0",

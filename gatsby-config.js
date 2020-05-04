@@ -11,7 +11,7 @@ module.exports = {
   siteMetadata: {
     title: 'Homeferences',
     description:
-      'Homeferences are Conferences which happen virtually, so you can attend from your home.',
+      'Homeferences are conferences which happen virtually, so you can attend from your home.',
     url: 'https://homeferences.netlify.com/',
     author: author,
     image: `og-image.jpeg`,
