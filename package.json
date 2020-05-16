@@ -19,7 +19,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "snyk": "^1.321.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -42,7 +43,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -61,5 +64,6 @@
     "*.{js,md,json,yaml,yml}": [
       "prettier --write"
     ]
-  }
+  },
+  "snyk": true
 }
