@@ -9,6 +9,7 @@ import Intro from '../components/Intro'
 import ConferencesList from '../components/ConferencesList'
 import ConferencesSearch from '../components/ConferencesSearch'
 import debounce from 'lodash/debounce'
+import BLM from '../components/BLM'
 
 const URL = 'https://homeferences.github.io/list/homeferences.json'
 
@@ -49,6 +50,7 @@ const IndexPage = () => {
     <Layout>
       <SEO />
       <Container fullWidth noPadding>
+        <BLM />
         <Intro text={intro} />
         <ConferencesSearch onSearch={debounce(onSearch, 250)} />
         {!loading && <ConferencesList conferences={filteredConferences} />}
