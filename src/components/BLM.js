@@ -75,7 +75,7 @@ const BLM = () => (
         </p>
         <p>
           If you can, please consider donation to antiracism organizations. You
-          can also directly support black open-source developers through the{' '}
+          can also directly support Black open-source developers through the{' '}
           <a
             href="https://github.com/sponsors"
             rel="noreferrer noopener"
