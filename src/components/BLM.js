@@ -91,7 +91,7 @@ const BLM = () => (
           >
             this thread
           </a>{' '}
-          contains mentions of developers who identify as black.
+          contains mentions of developers who identify as Black.
         </p>
       </div>
     </div>
