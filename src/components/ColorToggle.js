@@ -9,14 +9,14 @@ const Wrapper = styled.button`
   padding: 0;
   display: inline-block;
   cursor: pointer;
-  transform: scaleX(${props => (props.flip ? '1' : '-1')});
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  transform: scaleX(${(props) => (props.flip ? '1' : '-1')});
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     top: 6px;
   }
   svg {
-    fill: ${props => props.theme.colors.text};
+    fill: ${(props) => props.theme.colors.text};
     width: 1.75rem;
-    @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
       width: 1.4rem;
     }
   }
@@ -25,6 +25,7 @@ const Wrapper = styled.button`
 const ColorToggle = () => {
   const [colorMode, setColorMode] = useColorMode()
   const nextColorMode = colorMode === 'default' ? 'dark' : 'default'
+
   return (
     <Wrapper
       title={`Switch to ${nextColorMode} mode`}
