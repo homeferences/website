@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3693def-a3f1-4150-9d82-e9569d29a972" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.snyk" beforeDir="false" afterPath="$PROJECT_DIR$/.snyk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ColorToggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ColorToggle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ConferencesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ConferencesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gatsby-plugin-theme-ui/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gatsby-plugin-theme-ui/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,10 +84,22 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="144" y="79" key="MergeDialog" timestamp="1600521827690">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1600521827690" />
+    <state x="358" y="218" key="MultipleFileMergeDialog" timestamp="1600521829636">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="358" y="218" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1600521829636" />
     <state width="524" height="445" key="SwitcherDM" timestamp="1600514736378">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="524" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1600514736378" />
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600521832828">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.877@0.23.1440.877" timestamp="1600521832828" />
     <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1600514627236">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
