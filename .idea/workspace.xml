@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3693def-a3f1-4150-9d82-e9569d29a972" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ColorToggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ColorToggle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ConferencesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ConferencesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gatsby-plugin-theme-ui/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gatsby-plugin-theme-ui/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
