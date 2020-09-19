@@ -6,27 +6,27 @@ import parseISO from 'date-fns/parseISO'
 import dateIsPast from 'date-fns/isPast'
 
 const isPast = ({ startDay }) => dateIsPast(addDays(parseISO(startDay), 1))
-const isFuture = conference => !isPast(conference)
+const isFuture = (conference) => !isPast(conference)
 
 const Wrapper = styled.div`
-  max-width: ${props => props.theme.sizes.maxWidth};
+  max-width: ${(props) => props.theme.sizes.maxWidth};
   width: 100%;
   margin: 2rem auto 0;
-  @media screen and (min-width: ${props => props.theme.responsive.large}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.large}) {
     margin: 8rem auto 0;
   }
   padding: 0 1.5rem;
-  text-transform: ${props => (props.capitalize ? 'capitalize' : 'none')};
+  text-transform: ${(props) => (props.capitalize ? 'capitalize' : 'none')};
 `
 
 const Title = styled.h3`
   line-height: 1.125;
   text-align: left;
   font-size: 1.5em;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.small}) {
     font-size: 2em;
   }
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     max-width: 70%;
   }
   display: flex;
@@ -43,7 +43,7 @@ const ConferencesList = ({ conferences, ...props }) => {
   const past = conferences.filter(isPast)
   return (
     <>
-      <a name="upcoming"></a>
+      <div id="upcoming" />
       {upcoming.length === 0 && (
         <Wrapper>
           <Title>No upcoming Homeferences found</Title>
@@ -59,7 +59,7 @@ const ConferencesList = ({ conferences, ...props }) => {
           <BasicGrid conferences={upcoming} {...props} />
         </>
       )}
-      <a name="past"></a>
+      <div id="past" />
       {past.length > 0 && (
         <>
           <Wrapper>
@@ -67,9 +67,9 @@ const ConferencesList = ({ conferences, ...props }) => {
               Past Homeferences <small>({past.length})</small>
             </Title>
           </Wrapper>
+          <BasicGrid conferences={past} {...props} />
         </>
       )}
-      <BasicGrid conferences={past} {...props} />
     </>
   )
 }
