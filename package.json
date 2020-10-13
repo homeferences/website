@@ -20,7 +20,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "snyk": "^1.398.1",
+    "snyk": "^1.399.1",
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
