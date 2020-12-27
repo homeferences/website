@@ -4,7 +4,7 @@
   "description": "This is a Gatsby based static website which renders the List of Homeferences.",
   "homepage": "https://github.com/homeferences/website#readme",
   "dependencies": {
-    "core-js": "3.8.0",
+    "core-js": "3.8.1",
     "date-fns": "2.16.1",
     "framer-motion": "2.9.4",
     "gatsby": "2.27.4",
