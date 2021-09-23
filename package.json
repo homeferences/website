@@ -20,7 +20,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-helmet": "^6.1.0",
-    "snyk": "1.431.4",
+    "snyk": "1.685.0",
     "theme-ui": "0.3.4"
   },
   "devDependencies": {
